@@ -167,7 +167,7 @@ class Mgz2labels(ChrisApp):
         # Slice the .mgz file to 256 .png files
         # Preprocess the .png files to create  a giant .npy file for training
         self.convert_to_jpeg(options)
-        self.preprocess(options)
+        self.preprocess(options, LABEL_SET)
         print('Finished.')
 
     """
