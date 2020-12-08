@@ -35,7 +35,6 @@ Gstr_title = """
 |_| |_| |_|\__, /___|\_____/|_|\__,_|_.__/ \___|_|___/
             __/ |                                     
            |___/  
-                                               
 """
 
 Gstr_synopsis = """
@@ -101,7 +100,6 @@ where necessary.)
 """
 
 # A set containing all of the unique labels
-LABEL_SET = {0}
 LUT = pickle.load(open('label_LUT', 'rb'))
 
 
@@ -118,7 +116,7 @@ class Mgz2labels(ChrisApp):
     TYPE                    = 'ds'
     DESCRIPTION             = 'MGZ label-wise converter'
     DOCUMENTATION           = 'http://wiki'
-    VERSION                 = 0.1
+    VERSION                 = '0.1'
     ICON                    = ''  # url of an icon image
     LICENSE                 = 'Opensource (MIT)'
     MAX_NUMBER_OF_WORKERS   = 1  # Override with integer value
@@ -169,7 +167,7 @@ class Mgz2labels(ChrisApp):
         # Slice the .mgz file to 256 .png files
         # Preprocess the .png files to create  a giant .npy file for training
         self.convert_to_jpeg(options)
-        self.preprocess(options, LABEL_SET)
+        self.preprocess(options)
         print('Finished.')
 
     """
@@ -191,7 +189,6 @@ class Mgz2labels(ChrisApp):
 
         # get all the labels present
         labels = np.unique(new_image.astype(np.uint16))
-        LABEL_SET.update(labels)
 
         # now create a dictionary from the labels
 
