@@ -101,7 +101,7 @@ where necessary.)
 
 # A set containing all of the unique labels
 LUT = pickle.load(open('label_LUT', 'rb'))
-
+LABEL_SET = {0}
 
 class Mgz2labels(ChrisApp):
     """
@@ -189,8 +189,7 @@ class Mgz2labels(ChrisApp):
 
         # get all the labels present
         labels = np.unique(new_image.astype(np.uint16))
-
-        # now create a dictionary from the labels
+        LABEL_SET.update(labels)
 
         # Input data is the ground truth
         if "mask" in output_name:
