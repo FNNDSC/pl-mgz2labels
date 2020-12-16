@@ -21,9 +21,20 @@ Description
 
 ``mgz2labels`` is a ChRIS-based application whose backbone is `pl-mgz_converter <https://github.com/FNNDSC/pl-mgz_converter>`_. The input file structure is the same as pl-mgz_converter. The output will be 193 labels for each subject in separated folder, and 193 .npy files for each label. The output of this plugin is set to be used for `pl-mricnn <https://github.com/FNNDSC/pl-mricnn>`_ training.
 
+For training purpose, the real label index (`can be found here <https://github.com/FNNDSC/pl-mgz2LUT_report/blob/master/mgz2lut_report/FreeSurferColorLUT.txt>`_) will be convert to values between (0 ~ 255) based on a `label LUT <https://github.com/FNNDSC/pl-mgz2labels>`_.
 
 Usage
 -----
+
+.. code::
+
+    python mgz2labels.py
+        [-h|--help]
+        [--json] [--man] [--meta]
+        [--savejson <DIR>]
+        [-v|--verbosity <level>]
+        [--version]
+        <inputDir> <outputDir>
 
 Using Python3
 ~~~~~~~~~~~~
